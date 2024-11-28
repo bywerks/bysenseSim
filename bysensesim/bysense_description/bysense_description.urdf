@@ -1,0 +1,923 @@
+<?xml version="1.0" ?>
+<robot name="bysense" xmlns:xacro="http://ros.org/wiki/xacro">
+
+<link name="dummy_link"></link>
+
+<material name="silver">
+  <color rgba="0.700 0.700 0.700 1.000"/>
+</material>
+
+<link name="base_link">
+  <inertial>
+    <origin xyz="0.0007517460098092416 -0.0042680611333467105 -0.006864223846176162" rpy="0 0 0"/>
+    <mass value="5.222"/>
+    <inertia ixx="0.040227467229682026" iyy="0.09817364438523168" izz="0.1200203723201284" ixy="0.00027348190478557367" iyz="-0.00017466547786295803" ixz="1.5085495401802767e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find bysensesim)/bysense_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+    <material/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 -0.01" rpy="0 0 0"/>
+    <geometry>
+      <box size="0.3765 0.253 0.2"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="HL-HFE">
+  <inertial>
+    <origin xyz="-0.059660764958587825 0.003412203566146202 -3.4260642888354913e-09" rpy="0 0 0"/>
+    <mass value="0.9157471124771052"/>
+    <inertia ixx="0.0010545476575768288" iyy="0.0017051567479027044" izz="0.0012180048234135335" ixy="7.902790655650235e-05" iyz="-1.970740004307468e-11" ixz="-6.455418929801648e-13"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.188 -0.055 -0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find bysensesim)/bysense_description/meshes/HL-HFE.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+    <material/>
+  </visual>
+  <collision>
+    <origin xyz="-0.064 0 0" rpy="1.57 0 0"/>
+    <geometry>
+      <cylinder length="0.05" radius="0.065"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="FR-HFE">
+  <inertial>
+    <origin xyz="0.059660764958587825 -0.002491163509183922 -3.4260642841690855e-09" rpy="0 0 0"/>
+    <mass value="0.9157471124771052"/>
+    <inertia ixx="0.0010545476575768258" iyy="0.0017051567479027044" izz="0.0012180048234135266" ixy="7.902790655650235e-05" iyz="1.9707400043074656e-11" ixz="6.455418929800614e-13"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.188 0.055 -0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find bysensesim)/bysense_description/meshes/FR-HFE.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+    <material/>
+  </visual>
+  <collision>
+   <origin xyz="0.064 0 0" rpy="1.57 0 0"/>
+    <geometry>
+      <cylinder length="0.05" radius="0.065"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="FL-HFE">
+  <inertial>
+    <origin xyz="0.05966070631000925 0.003412185034840115 7.973747112369575e-18" rpy="0 0 0"/>
+    <mass value="0.9157482210362803"/>
+    <inertia ixx="0.0010545531233950804" iyy="0.0017051625717596636" izz="0.0012180063300659266" ixy="-7.902669347617693e-05" iyz="9.616805183399949e-19" ixz="-6.1278885948030986e-18"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.188 -0.055 -0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find bysensesim)/bysense_description/meshes/FL-HFE.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+    <material/>
+  </visual>
+  <collision>
+   <origin xyz="0.064 0 0" rpy="1.57 0 0"/>
+    <geometry>
+      <cylinder length="0.05" radius="0.065"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="HR-HFE">
+  <inertial>
+    <origin xyz="-0.05966070631000919 -0.0034121850348400803 7.97374711236955e-18" rpy="0 0 0"/>
+    <mass value="0.9157482210362807"/>
+    <inertia ixx="0.0010545531233950144" iyy="0.001705162571759719" izz="0.001218006330065309" ixy="-7.902669347616999e-05" iyz="4.0256153431940345e-19" ixz="1.4170379482550358e-19"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.188 0.055 -0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find bysensesim)/bysense_description/meshes/HR-HFE.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+    <material/>
+  </visual>
+  <collision>
+   <origin xyz="-0.064 0 0" rpy="1.57 0 0"/>
+    <geometry>
+      <cylinder length="0.05" radius="0.065"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="HL-LEG-UPR">
+  <inertial>
+    <origin xyz="-0.0025451522252100123 0.05559661235440175 -0.04271348533806577" rpy="0 0 0"/>
+    <mass value="0.9468633706695582"/>
+    <inertia ixx="0.005931053038207332" iyy="0.006039146411123422" izz="0.001538234694280327" ixy="5.5645330364881285e-05" iyz="0.0008535613122148556" ixz="-0.0002452893162095248"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.255 -0.093079 0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find bysensesim)/bysense_description/meshes/HL-LEG-UPR.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+    <material/>
+  </visual>
+  <collision>
+    <origin xyz="0 0.085 -0.08" rpy="0 1.5707 0"/>
+    <geometry>
+      <box size="0.29 0.04 0.1"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="FL-LEG-UPR">
+  <inertial>
+    <origin xyz="-0.0025451522252098457 0.05559661235440183 -0.04271348533806611" rpy="0 0 0"/>
+    <mass value="0.9468633706695592"/>
+    <inertia ixx="0.005931053038207349" iyy="0.006039146411123422" izz="0.001538234694280327" ixy="5.564533036486741e-05" iyz="0.0008535613122148539" ixz="-0.0002452893162095092"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.255 -0.093079 -0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find bysensesim)/bysense_description/meshes/FL-LEG-UPR.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+    <material/>
+  </visual>
+  <collision>
+    <origin xyz="0 0.085 -0.08" rpy="0 1.5707 0"/>
+    <geometry>
+      <box size="0.29 0.04 0.1"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="FR-LEG-UPR">
+  <inertial>
+    <origin xyz="-0.0025459498116122137 -0.055596590231801926 -0.04271466073540397" rpy="0 0 0"/>
+    <mass value="0.946845058396737"/>
+    <inertia ixx="0.005930994985124366" iyy="0.006039075384416878" izz="0.0015381838031293948" ixy="-5.564417764098578e-05" iyz="-0.0008535592419019484" ixz="-0.00024526021658218856"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.255 0.092158 -0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find bysensesim)/bysense_description/meshes/FR-LEG-UPR.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+    <material/>
+  </visual>
+  <collision>
+    <origin xyz="0 -0.085 -0.08" rpy="0 1.5707 0"/>
+    <geometry>
+      <box size="0.29 0.04 0.1"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="HR-LEG-UPR">
+  <inertial>
+    <origin xyz="-0.002545949811612158 -0.05559663028876427 -0.04271466073540376" rpy="0 0 0"/>
+    <mass value="0.9468450583967375"/>
+    <inertia ixx="0.005930994985124442" iyy="0.0060390753844168504" izz="0.001538183803129381" ixy="-5.564417764099272e-05" iyz="-0.000853559241901951" ixz="-0.0002452602165821851"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.255 0.093079 -0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find bysensesim)/bysense_description/meshes/HR-LEG-UPR.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+    <material/>
+  </visual>
+  <collision>
+    <origin xyz="0 -0.085 -0.08" rpy="0 1.5707 0"/>
+    <geometry>
+      <box size="0.29 0.04 0.1"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="HL-LEG-LWR">
+  <inertial>
+    <origin xyz="-0.010388432669448333 -0.01500046856212811 -0.10452640089213988" rpy="0 0 0"/>
+    <mass value="0.33525084456822823"/>
+    <inertia ixx="0.003930196788336858" iyy="0.003994214155444639" izz="0.00010910671706420433" ixy="-7.855362887942974e-11" iyz="-6.244845057734594e-10" ixz="-0.00012849410652210347"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.24 -0.187684 0.25" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find bysensesim)/bysense_description/meshes/HL-LEG-LWR.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+    <material/>
+  </visual>
+  <collision>
+    <origin xyz="-0.015 -0.015 -0.11" rpy="0 0 0"/>
+    <geometry>
+      <cylinder length="0.22" radius="0.02"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="HL-FOOT">
+  <inertial>
+    <origin xyz="-0.027234422154866073 -4.2922740373096957e-07 0.021496390823536715" rpy="0 0 0"/>
+    <mass value="0.1"/>
+    <inertia ixx="4.849536552949986e-06" iyy="3.6477958854463748e-06" izz="3.88326364084016e-06" ixy="-2.1215452897065112e-12" iyz="-5.8332639933655894e-12" ixz="1.1148929757274096e-12"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.235187 -0.172684 0.548751" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find bysensesim)/bysense_description/meshes/HL-FOOT.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+    <material/>
+  </visual>
+  <collision>
+     <origin xyz="-0.02 0 0.025" rpy="0 -0.35 0"/>
+    <geometry>
+      <sphere radius="0.032"/>
+    </geometry>
+      <surface>
+        <contact>
+            <ode>
+              <kp>1e+07</kp>
+              <kd>100</kd>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>0.8</mu>
+              <mu2>0.8</mu2>
+            </ode>
+          </friction>
+      </surface>
+  </collision>
+</link>
+
+<link name="FL-LEG-LWR">
+  <inertial>
+    <origin xyz="-0.010388432669448056 -0.015000468562127944 -0.10452640089214349" rpy="0 0 0"/>
+    <mass value="0.3352508445682348"/>
+    <inertia ixx="0.00393019678833708" iyy="0.003994214155444847" izz="0.00010910671706420433" ixy="-7.855363234887669e-11" iyz="-6.244844953651185e-10" ixz="-0.00012849410652210694"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.27 -0.187684 0.25" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find bysensesim)/bysense_description/meshes/FL-LEG-LWR.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+    <material/>
+  </visual>
+  <collision>
+    <origin xyz="-0.015 -0.015 -0.11" rpy="0 0 0"/>
+    <geometry>
+      <cylinder length="0.22" radius="0.02"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="FL-FOOT">
+  <inertial>
+    <origin xyz="-0.027234422154865823 -4.2922740339790266e-07 0.021496390823536715" rpy="0 0 0"/>
+    <mass value="0.1"/>
+    <inertia ixx="4.849536552948685e-06" iyy="3.6477958854520126e-06" izz="3.88326364084016e-06" ixy="-2.1215452354964026e-12" iyz="-5.8332639933655894e-12" ixz="1.1148929757263254e-12"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.274813 -0.172684 0.548751" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find bysensesim)/bysense_description/meshes/FL-FOOT.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+    <material/>
+  </visual>
+  <collision>
+     <origin xyz="-0.02 0 0.025" rpy="0 -0.35 0"/>
+    <geometry>
+      <sphere radius="0.032"/>
+    </geometry>
+      <surface>
+      <contact>
+            <ode>
+              <kp>1e+07</kp>
+              <kd>100</kd>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>0.8</mu>
+              <mu2>0.8</mu2>
+            </ode>
+          </friction>
+      </surface>    
+  </collision>
+</link>
+
+<link name="FR-LEG-LWR">
+  <inertial>
+    <origin xyz="-0.010388432669448167 -0.015000348391241397 -0.10452640089214277" rpy="0 0 0"/>
+    <mass value="0.33525084456823345"/>
+    <inertia ixx="0.0039301967883370315" iyy="0.0039942141554448335" izz="0.00010910671706421127" ixy="-7.855362714470626e-11" iyz="-6.244844988345655e-10" ixz="-0.00012849410652209653"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.27 0.156553 0.25" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find bysensesim)/bysense_description/meshes/FR-LEG-LWR.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+    <material/>
+  </visual>
+  <collision>
+       <origin xyz="-0.015 -0.015 -0.11" rpy="0 0 0"/>
+    <geometry>
+      <cylinder length="0.22" radius="0.02"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="FR-FOOT">
+  <inertial>
+    <origin xyz="-0.027234422154865934 -3.0905651679513646e-07 0.021496390823536715" rpy="0 0 0"/>
+    <mass value="0.1"/>
+    <inertia ixx="4.849536552948685e-06" iyy="3.6477958854524463e-06" izz="3.883263640840594e-06" ixy="-2.12154534391662e-12" iyz="-5.833264101785807e-12" ixz="1.114892975726759e-12"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.274813 0.171553 0.548751" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find bysensesim)/bysense_description/meshes/FR-FOOT.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+    <material/>
+  </visual>
+  <collision>
+    <origin xyz="-0.02 0 0.025" rpy="0 -0.35 0"/>
+    <geometry>
+      <sphere radius="0.032"/>
+    </geometry>
+      <surface>
+        <contact>
+            <ode>
+              <kp>1e+07</kp>
+              <kd>100</kd>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>0.8</mu>
+              <mu2>0.8</mu2>
+            </ode>
+          </friction>
+      </surface>
+  </collision>
+</link>
+
+<link name="HR-LEG-LWR">
+  <inertial>
+    <origin xyz="-0.010388432669448389 -0.015000388448203644 -0.10452640089214227" rpy="0 0 0"/>
+    <mass value="0.3352508445682324"/>
+    <inertia ixx="0.003930196788337052" iyy="0.003994214155444792" izz="0.00010910671706420433" ixy="-7.855363061415321e-11" iyz="-6.244845057734594e-10" ixz="-0.00012849410652210347"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.24 0.157474 0.25" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find bysensesim)/bysense_description/meshes/HR-LEG-LWR.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+    <material/>
+  </visual>
+  <collision>
+      <origin xyz="-0.015 -0.015 -0.11" rpy="0 0 0"/>
+    <geometry>
+      <cylinder length="0.22" radius="0.02"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="HR-FOOT">
+  <inertial>
+    <origin xyz="-0.027234422154866184 -3.491134788480288e-07 0.02149639082353605" rpy="0 0 0"/>
+    <mass value="0.1"/>
+    <inertia ixx="4.84953655295042e-06" iyy="3.6477958854507116e-06" izz="3.88326364084016e-06" ixy="-2.12154534391662e-12" iyz="-5.833264210206024e-12" ixz="1.114892975726759e-12"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.235187 0.172474 0.548751" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find bysensesim)/bysense_description/meshes/HR-FOOT.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+    <material/>
+  </visual>
+  <collision>
+    <origin xyz="-0.02 0 0.025" rpy="0 -0.35 0"/>
+    <geometry>
+      <sphere radius="0.032"/>
+    </geometry>
+      <surface>
+       <contact>
+            <ode>
+              <kp>1e+07</kp>
+              <kd>100</kd>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>0.8</mu>
+              <mu2>0.8</mu2>
+            </ode>
+          </friction>
+      </surface>
+  </collision>
+</link>
+
+<link name="imu_link">
+  <inertial>
+    <origin xyz="0.0 0.0 -0.003" rpy="0 0 0"/>
+    <mass value="0.001"/>
+    <inertia ixx="1.0173600000000004e-08" iyy="1.0173600000000004e-08" izz="1.0173600000000004e-08" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+</link>
+
+<link name="F-BUMPER">
+  <inertial>
+    <origin xyz="0.10860983050799258 -0.029000056500411986 -0.06950007191723423" rpy="0 0 0"/>
+    <mass value="1.0"/>
+    <inertia ixx="0.004341144033304229" iyy="0.007516467380818612" izz="0.004098517655642522" ixy="7.772239341346051e-10" iyz="-2.7619496506884147e-09" ixz="-6.453540369370796e-09"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.167 -0.029 -0.0695" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find bysensesim)/bysense_description/meshes/F-BUMPER.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+    <material/>
+  </visual>
+  <collision>
+    <origin xyz="0.17 -0.028 -0.07" rpy="0 0 0"/>
+    <geometry>
+      <box size="0.02 0.087 0.19"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="F-HANDLE">
+  <inertial>
+    <origin xyz="0.03081761608608216 -0.08913655327161568 0.025892594752809833" rpy="0 0 0"/>
+    <mass value="0.232"/>
+    <inertia ixx="0.0011116779043745806" iyy="0.00013983106810761155" izz="0.0010342652995403157" ixy="2.2577889577847994e-09" iyz="1.7951324747295179e-09" ixz="-3.5208539586609015e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.145731 -0.089137 -0.097659" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find bysensesim)/bysense_description/meshes/F-HANDLE.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+    <material/>
+  </visual>
+  <collision>
+    <origin xyz="0.023 -0.087 0.03" rpy="0 0 0"/>
+    <geometry>
+      <box size="0.038 0.212 0.063"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="H-HANDLE">
+  <inertial>
+    <origin xyz="-0.030817628744036624 -0.0891372636259085 0.025892831920000803" rpy="0 0 0"/>
+    <mass value="0.232"/>
+    <inertia ixx="0.0011116690117068382" iyy="0.00013982890907537557" izz="0.0010342584053496069" ixy="-3.2356398334326263e-10" iyz="-1.5577729917624179e-09" ixz="3.5208255713165167e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.145731 -0.089137 -0.097659" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find bysensesim)/bysense_description/meshes/H-HANDLE.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+    <material/>
+  </visual>
+  <collision>
+    <origin xyz="-0.023 -0.087 0.03" rpy="0 0 0"/>
+    <geometry>
+      <box size="0.038 0.212 0.063"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="H-BUMPER">
+  <inertial>
+    <origin xyz="-0.10860886359284169 -0.029000001916913404 -0.06950006016418325" rpy="0 0 0"/>
+    <mass value="1.0"/>
+    <inertia ixx="0.004341108474254504" iyy="0.007516377024668841" izz="0.00409844036953369" ixy="2.5493886214053613e-09" iyz="-7.366439940652433e-09" ixz="7.80909460644768e-09"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.167 -0.029 -0.0695" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find bysensesim)/bysense_description/meshes/H-BUMPER.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+    <material/>
+  </visual>
+  <collision>
+    <origin xyz="-0.17 -0.028 -0.07" rpy="0 0 0"/>
+    <geometry>
+      <box size="0.02 0.087 0.19"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="dummy_joint" type="fixed">
+  <origin xyz="0 0 0" rpy="0 0 0"/>
+  <parent link="dummy_link"/>
+  <child link="base_link"/>
+</joint>
+
+<joint name="10-HL-HAA" type="revolute">
+  <origin xyz="-0.188 0.055 0.0" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="HL-HFE"/>
+  <axis xyz="1.0 0.0 0.0"/>
+  <dynamics damping="0.01" friction="0.01"/>
+  <limit upper="0.523599" lower="-0.523599" effort="20" velocity="30"/>
+</joint>
+
+<joint name="4-FR-HAA" type="revolute">
+  <origin xyz="0.188 -0.055 0.0" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="FR-HFE"/>
+  <axis xyz="1.0 0.0 0.0"/>
+  <dynamics damping="0.01" friction="0.01"/>
+  <limit upper="0.523599" lower="-0.523599" effort="20" velocity="30"/>
+</joint>
+
+<joint name="1-FL-HAA" type="revolute">
+  <origin xyz="0.188 0.055 0.0" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="FL-HFE"/>
+  <axis xyz="1.0 0.0 0.0"/>
+  <dynamics damping="0.01" friction="0.01"/>
+  <limit upper="0.523599" lower="-0.523599" effort="20" velocity="30"/>
+</joint>
+
+<joint name="7-HR-HAA" type="revolute">
+  <origin xyz="-0.188 -0.055 0.0" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="HR-HFE"/>
+  <axis xyz="1.0 0.0 0.0"/>
+  <dynamics damping="0.01" friction="0.01"/>
+  <limit upper="0.523599" lower="-0.523599" effort="20" velocity="30"/>
+</joint>
+
+<joint name="11-HL-HFE" type="revolute">
+  <origin xyz="-0.067 0.038079 -0.0" rpy="0 0 0"/>
+  <parent link="HL-HFE"/>
+  <child link="HL-LEG-UPR"/>
+  <axis xyz="0.0 1.0 0.0"/>
+  <dynamics damping="0.01" friction="0.01"/>
+  <limit upper="2.617994" lower="-0.698132" effort="20" velocity="30"/>
+</joint>
+
+<joint name="2-FL-HFE" type="revolute">
+  <origin xyz="0.067 0.038079 0.0" rpy="0 0 0"/>
+  <parent link="FL-HFE"/>
+  <child link="FL-LEG-UPR"/>
+  <axis xyz="0.0 1.0 0.0"/>
+  <dynamics damping="0.01" friction="0.01"/>
+  <limit upper="2.617994" lower="-0.698132" effort="20" velocity="30"/>
+</joint>
+
+<joint name="5-FR-HFE" type="revolute">
+  <origin xyz="0.067 -0.037158 0.0" rpy="0 0 0"/>
+  <parent link="FR-HFE"/>
+  <child link="FR-LEG-UPR"/>
+  <axis xyz="0.0 1.0 0.0"/>
+  <dynamics damping="0.01" friction="0.01"/>
+  <limit upper="2.443461" lower="-0.872665" effort="20" velocity="30"/>
+</joint>
+
+<joint name="8-HR-HFE" type="revolute">
+  <origin xyz="-0.067 -0.038079 0.0" rpy="0 0 0"/>
+  <parent link="HR-HFE"/>
+  <child link="HR-LEG-UPR"/>
+  <axis xyz="0.0 1.0 0.0"/>
+  <dynamics damping="0.01" friction="0.01"/>
+  <limit upper="2.443461" lower="-0.872665" effort="20" velocity="30"/>
+</joint>
+
+<joint name="12-HL-KFE" type="revolute">
+  <origin xyz="0.015 0.094605 -0.25" rpy="0 0 0"/>
+  <parent link="HL-LEG-UPR"/>
+  <child link="HL-LEG-LWR"/>
+  <axis xyz="0.0 1.0 0.0"/>
+<dynamics damping="0.01" friction="0.01"/>
+  <limit upper="0.349066" lower="-2.949606" effort="20" velocity="30"/>
+</joint>
+
+<joint name="HR-Foot" type="fixed">
+  <origin xyz="0.004813 -0.015 -0.298751" rpy="0 0 0"/>
+  <parent link="HL-LEG-LWR"/>
+  <child link="HL-FOOT"/>
+</joint>
+
+<joint name="3-FL-KFE" type="revolute">
+  <origin xyz="0.015 0.094605 -0.25" rpy="0 0 0"/>
+  <parent link="FL-LEG-UPR"/>
+  <child link="FL-LEG-LWR"/>
+  <axis xyz="0.0 1.0 0.0"/>
+<dynamics damping="0.01" friction="0.01"/>
+  <limit upper="0.349066" lower="-2.949606" effort="20" velocity="30"/>
+</joint>
+
+<joint name="FR-Foot" type="fixed">
+  <origin xyz="0.004813 -0.015 -0.298751" rpy="0 0 0"/>
+  <parent link="FL-LEG-LWR"/>
+  <child link="FL-FOOT"/>
+</joint>
+
+<joint name="6-FR-KFE" type="revolute">
+  <origin xyz="0.015 -0.064395 -0.25" rpy="0 0 0"/>
+  <parent link="FR-LEG-UPR"/>
+  <child link="FR-LEG-LWR"/>
+  <axis xyz="0.0 1.0 0.0"/>
+<dynamics damping="0.01" friction="0.01"/>
+  <limit upper="0.349066" lower="-2.949606" effort="20" velocity="30"/>
+</joint>
+
+<joint name="FL-Foot" type="fixed">
+  <origin xyz="0.004813 -0.015 -0.298751" rpy="0 0 0"/>
+  <parent link="FR-LEG-LWR"/>
+  <child link="FR-FOOT"/>
+</joint>
+
+<joint name="9-HR-KFE" type="revolute">
+  <origin xyz="0.015 -0.064395 -0.25" rpy="0 0 0"/>
+  <parent link="HR-LEG-UPR"/>
+  <child link="HR-LEG-LWR"/>
+  <axis xyz="0.0 1.0 0.0"/>
+<dynamics damping="0.01" friction="0.01"/>
+  <limit upper="0.349066" lower="-2.949606" effort="20" velocity="30"/>
+</joint>
+
+<joint name="HL-Foot" type="fixed">
+  <origin xyz="0.004813 -0.015 -0.298751" rpy="0 0 0"/>
+  <parent link="HR-LEG-LWR"/>
+  <child link="HR-FOOT"/>
+</joint>
+
+<joint name="imu_joint" type="fixed">
+  <origin xyz="0.0 0.0 0.003" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="imu_link"/>
+</joint>
+
+<joint name="F-BUMPER" type="fixed">
+  <origin xyz="0.167 0.029 0.0695" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="F-BUMPER"/>
+</joint>
+
+<joint name="F-HANDLE" type="fixed">
+  <origin xyz="0.145731 0.089137 0.097659" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="F-HANDLE"/>
+</joint>
+
+<joint name="H-HANDLE" type="fixed">
+  <origin xyz="-0.145731 0.089137 0.097659" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="H-HANDLE"/>
+</joint>
+
+<joint name="H-BUMPER" type="fixed">
+  <origin xyz="-0.167 0.029 0.0695" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="H-BUMPER"/>
+</joint>
+
+
+<!-- CONTROLLERS FOR LEGS -->
+<ros2_control name="GazeboSystem" type="System">
+ 	<hardware>
+     <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+ 	</hardware>
+ 	
+ 	<!-- Position Controllers-->
+  <joint name="1-FL-HAA">
+    <command_interface name="effort">
+		    <param name="min">-30.0</param>
+		    <param name="max">30.0</param>
+		</command_interface>
+	  <state_interface name="effort"/>
+    <state_interface name="velocity"/>
+    <state_interface name="position"/>
+  </joint>
+
+  <joint name="2-FL-HFE">
+    <command_interface name="effort">
+			  <param name="min">-30.0</param>
+		    <param name="max">30.0</param>
+		</command_interface>
+	  <state_interface name="effort"/>
+    <state_interface name="velocity"/>
+    <state_interface name="position"/>
+  </joint>
+
+  <joint name="3-FL-KFE">
+    <command_interface name="effort">
+		    <param name="min">-30.0</param>
+		    <param name="max">30.0</param>
+		</command_interface>
+	  <state_interface name="effort"/>
+    <state_interface name="velocity"/>
+    <state_interface name="position"/>
+  </joint>
+
+  <joint name="4-FR-HAA">
+    <command_interface name="effort">
+		    <param name="min">-30.0</param>
+		    <param name="max">30.0</param>
+		</command_interface>
+	  <state_interface name="effort"/>
+    <state_interface name="velocity"/>
+    <state_interface name="position"/>
+  </joint>
+
+  <joint name="5-FR-HFE">
+    <command_interface name="effort">
+		    <param name="min">-30.0</param>
+		    <param name="max">30.0</param>
+		</command_interface>
+	  <state_interface name="effort"/>
+    <state_interface name="velocity"/>
+    <state_interface name="position"/>
+  </joint>
+
+  <joint name="6-FR-KFE">
+    <command_interface name="effort">
+		    <param name="min">-30.0</param>
+		    <param name="max">30.0</param>
+		</command_interface>
+	  <state_interface name="effort"/>
+    <state_interface name="velocity"/>
+    <state_interface name="position"/>
+  </joint>
+
+  <joint name="7-HR-HAA">
+    <command_interface name="effort">
+		    <param name="min">-30.0</param>
+		    <param name="max">30.0</param>
+		</command_interface>
+	  <state_interface name="effort"/>
+    <state_interface name="velocity"/>
+    <state_interface name="position"/>
+  </joint>
+
+  <joint name="8-HR-HFE">
+    <command_interface name="effort">
+		    <param name="min">-30.0</param>
+		    <param name="max">30.0</param>
+		</command_interface>
+	  <state_interface name="effort"/>
+    <state_interface name="velocity"/>
+    <state_interface name="position"/>
+  </joint>
+
+  <joint name="9-HR-KFE">
+    <command_interface name="effort">
+		    <param name="min">-30.0</param>
+		    <param name="max">30.0</param>
+		</command_interface>
+	  <state_interface name="effort"/>
+    <state_interface name="velocity"/>
+    <state_interface name="position"/>
+  </joint>
+
+  <joint name="10-HL-HAA">
+    <command_interface name="effort">
+		    <param name="min">-30.0</param>
+		    <param name="max">30.0</param>
+		</command_interface>
+	  <state_interface name="effort"/>
+    <state_interface name="velocity"/>
+    <state_interface name="position"/>
+  </joint>
+
+  <joint name="11-HL-HFE">
+    <command_interface name="effort">
+		    <param name="min">-30.0</param>
+		    <param name="max">30.0</param>
+		</command_interface>
+	  <state_interface name="effort"/>
+    <state_interface name="velocity"/>
+    <state_interface name="position"/>
+  </joint>
+
+  <joint name="12-HL-KFE">
+    <command_interface name="effort">
+		    <param name="min">-30.0</param>
+		    <param name="max">30.0</param>
+		</command_interface>
+	  <state_interface name="effort"/>
+    <state_interface name="velocity"/>
+    <state_interface name="position"/>
+  </joint>
+
+</ros2_control>
+
+  <gazebo>
+    <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
+        <parameters>$(find bysensesim)/config/control.yaml</parameters>
+    </plugin>
+	</gazebo>
+
+
+  <!-- IMU Plugin-->
+  <gazebo reference="imu_link">
+    <gravity>true</gravity>
+    <sensor name="imu_sensor" type="imu">
+      <always_on>true</always_on>
+      <update_rate>1000</update_rate>
+      <visualize>true</visualize>
+      <topic>__default_topic__</topic>
+      <plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
+                <topicName>imu/absolute</topicName>
+                <bodyName>imu_link</bodyName>
+                <updateRateHZ>400.0</updateRateHZ>
+                <gaussianNoise>0.0</gaussianNoise>
+                <xyzOffset>0 0 0</xyzOffset>
+                <rpyOffset>0 0 0</rpyOffset>
+                <frameName>imu_link</frameName>
+                <initial_orientation_as_reference>false</initial_orientation_as_reference>
+      </plugin>
+    </sensor>
+  </gazebo>
+
+  <gazebo reference="FL-FOOT">
+    <mu1>2.0</mu1>
+    <mu2>2.0</mu2>
+    <self_collide>1</self_collide>
+    <material>Gazebo/DarkGrey</material>
+    <kp value="1000000.0"/>
+    <kd value="100.0"/>
+  </gazebo>
+
+  <gazebo reference="FR-FOOT">
+    <mu1>2.0</mu1>
+    <mu2>2.0</mu2>
+    <self_collide>1</self_collide>
+    <material>Gazebo/DarkGrey</material>
+    <kp value="1000000.0"/>
+    <kd value="100.0"/>
+  </gazebo>
+
+  <gazebo reference="HR-FOOT">
+    <mu1>2.0</mu1>
+    <mu2>2.0</mu2>
+    <self_collide>1</self_collide>
+    <material>Gazebo/DarkGrey</material>
+    <kp value="1000000.0"/>
+    <kd value="100.0"/>
+  </gazebo>
+
+  <gazebo reference="HL-FOOT">
+    <mu1>2.0</mu1>
+    <mu2>2.0</mu2>
+    <self_collide>1</self_collide>
+    <material>Gazebo/DarkGrey</material>
+    <kp value="1000000.0"/>
+    <kd value="100.0"/>
+  </gazebo>
+
+  <gazebo reference="FL-FOOT">
+      <disableFixedJointLumping>true</disableFixedJointLumping>
+  </gazebo>
+
+  <gazebo reference="FR-FOOT">
+      <disableFixedJointLumping>true</disableFixedJointLumping>
+  </gazebo>
+
+  <gazebo reference="HR-FOOT">
+      <disableFixedJointLumping>true</disableFixedJointLumping>
+  </gazebo>
+
+  <gazebo reference="HL-FOOT">
+      <disableFixedJointLumping>true</disableFixedJointLumping>
+  </gazebo>
+
+
+  <gazebo reference="imu_link">
+      <material>Gazebo/Orange</material>
+  </gazebo>
+  
+  <gazebo reference="imu_joint">
+      <disableFixedJointLumping>true</disableFixedJointLumping>
+  </gazebo>
+
+</robot>
