@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="docs/bysenseSim_logo.png" alt="bysenseSim Logo" width="100">
+  <img src="docs/bysenseSim_logo.png" alt="bysenseSim Logo" >
 </div>
 
 ![ROS 2 Humble](https://img.shields.io/badge/ROS2-Humble-blue.svg?logo=ros&style=flat-square)
