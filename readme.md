@@ -17,7 +17,7 @@ Our mission is to bring sensors to walk.
 bysenseSim is an open toolset designed to help you gain your first experience with bysense. Built on Gazebo, ROS2, and RViz, it offers a complete simulation environment to get bysense up and running before the need for physical hardware. Whether you’re a beginner wanting to dive into robotics or an experienced developer looking to build complex applications, this repo has what you need to get started quickly and efficiently to enable sensors to walk using reinforcement learning (RL) policies:
 
 <div align="center">
-  <img src="docs/walking.gif" alt="walking" width="100">
+  <img src="docs/walking.gif" alt="walking" >
 </div>
 
 With bysenseSim, you can explore and develop robotic behaviors in a realistic simulation environment—no physical hardware required.
@@ -33,19 +33,19 @@ We’re bringing bysense to Gazebo/ROS2, complete with following key capabilitie
 Use the standup.py script to bring the robot in its ready to walk position:
 
 <div align="center">
-  <img src="docs/standup.gif" alt="standup" width="100">
+  <img src="docs/standup.gif" alt="standup" >
 </div>
 
 With the walking.py you find a basic kinematic movement of the robot:
 
 <div align="center">
-  <img src="docs/walking_kinbased.gif" alt="walk kin based" width="100">
+  <img src="docs/walking_kinbased.gif" alt="walk kin based" >
 </div>
 
 Finally once your are finished with your simulation sitdown:
 
 <div align="center">
-  <img src="docs/sitdown.gif" alt="sitdown" width="100">
+  <img src="docs/sitdown.gif" alt="sitdown" >
 </div>
 
 
